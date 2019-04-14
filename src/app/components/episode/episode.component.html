@@ -1,0 +1,13 @@
+<h3>{{episode.episode}}</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Quality</th><th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let qualityKey of qualityKeys(episode.videoLinks)">
+      <td>{{qualityKey}}</td><td><a [href]="episode.videoLinks[qualityKey]" target="_blank">{{episode.videoLinks[qualityKey]}}</a></td>
+    </tr>
+  </tbody>
+</table>

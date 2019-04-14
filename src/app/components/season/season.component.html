@@ -1,0 +1,6 @@
+<h2>{{season.season}}</h2>
+<ul>
+  <li *ngFor="let episode of season.episodes; let i = index"><a href="#" (click)="openEpisode($event, i)">{{episode.episode}}</a></li>
+</ul>
+
+<app-episode *ngIf="selectedEpisode" [episode]="selectedEpisode"></app-episode>

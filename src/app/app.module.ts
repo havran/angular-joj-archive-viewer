@@ -1,18 +1,41 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { JojService, jojServiceFactory } from './services/joj/joj.service';
+import { SeasonListComponent } from './components/season-list/season-list.component';
+import { SeasonComponent } from './components/season/season.component';
+import { EpisodeComponent } from './components/episode/episode.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SeasonListComponent,
+    SeasonComponent,
+    EpisodeComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
   ],
-  providers: [],
+  providers: [
+    JojService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: jojServiceFactory,
+      deps: [JojService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
