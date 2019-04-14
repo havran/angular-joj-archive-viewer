@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - using https://github.com/havran/jojsk-mp4-scrapper for scraping all episodes for JOJ Inkogito
 - then save file inkognito.json to assets/data/inkognito.json
-- start yarn serve and open http://localhost:4200/ 
+- start yarn serve and open http://localhost:4200/ (or demo here https://havran.github.io/angular-joj-archive-viewer/)
 - you can view episodes without anoying ads
 
 ## Development server
