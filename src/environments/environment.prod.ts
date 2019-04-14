@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseHref: '/angular-joj-archive-viewer/',
 };

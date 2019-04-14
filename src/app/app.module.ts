@@ -11,6 +11,8 @@ import { JojService, jojServiceFactory } from './services/joj/joj.service';
 import { SeasonListComponent } from './components/season-list/season-list.component';
 import { SeasonComponent } from './components/season/season.component';
 import { EpisodeComponent } from './components/episode/episode.component';
+import {APP_BASE_HREF} from '@angular/common';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,10 @@ import { EpisodeComponent } from './components/episode/episode.component';
       deps: [JojService],
       multi: true,
     },
+    {
+      provide: APP_BASE_HREF,
+      useValue: environment.baseHref,
+    }
   ],
   bootstrap: [AppComponent]
 })

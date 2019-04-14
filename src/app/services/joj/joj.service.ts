@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/internal/operators/tap';
 import {BehaviorSubject} from 'rxjs';
+import {APP_BASE_HREF} from '@angular/common';
 
 export function jojServiceFactory(
   jojService: JojService,
@@ -28,6 +29,7 @@ export class JojService {
   private seasonsData: BehaviorSubject<JojSeason[]> = new BehaviorSubject<JojSeason[]>([]);
 
   constructor(
+    @Inject(APP_BASE_HREF) private baseHref: string,
     private httpClient: HttpClient,
   ) {}
 
@@ -36,7 +38,7 @@ export class JojService {
   }
 
   load() {
-    const dataPath = '/assets/data/inkognito.json';
+    const dataPath = this.baseHref + 'assets/data/inkognito.json';
 
     this.httpClient
       .get(dataPath)
