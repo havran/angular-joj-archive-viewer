@@ -4,12 +4,12 @@ import {SeasonListComponent} from './components/season-list/season-list.componen
 
 const routes: Routes = [
   {
-    path: 'seasons',
+    path: '',
     component: SeasonListComponent,
   },
   {
     path: '**',
-    redirectTo: '/seasons',
+    redirectTo: '',
     pathMatch: 'full',
   }
 ];
